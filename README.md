@@ -1,6 +1,8 @@
 # QuakeRelief
 **Real-time Earthquake Disaster Intelligence & Coordination Platform**
 
+> 🏆 **HACK4HUMANITY** — [Visit hackathon](https://hack4humanity.brainallianz.org/)
+
 An AI-augmented, multi-portal situational awareness system that bridges citizens, field rescue squads, and SEOC command centres during earthquake emergencies — delivering verified incident intelligence, live tactical mapping, fleet coordination, and automated priority ranking from a single unified dashboard.
 
 ---
@@ -179,6 +181,9 @@ The application will be available at `http://localhost:3000`.
 bun run lint
 ```
 
+## Demo
+
+- 🎥 Video : [Demo_vid](https://drive.google.com/file/d/1ZIXYGRB_lUqPtsrPFupfsv48LQitOH09/view?usp=sharing)
 ---
 
 ## Project Structure
@@ -186,6 +191,7 @@ bun run lint
 ```
 src/
 ├── app/
+|   ├── globals.css
 │   ├── layout.tsx              # Root layout with Toaster
 │   ├── page.tsx                # Main entry — role router, WebSocket, alert polling
 │   └── api/
@@ -279,6 +285,16 @@ The application uses **8 interconnected models** in SQLite via Prisma:
 This project is developed as a Proof-of-Concept for disaster management research. Contact the maintainers for licensing details.
 
 ---
+
+## Team
+
+| Name | 
+|------|
+| Dakh Shinde | 
+| Tanmay Patil | 
+| Tanmay Dahake |
+| Neeraj Piralkar |
+
 
 ## Acknowledgements
 
