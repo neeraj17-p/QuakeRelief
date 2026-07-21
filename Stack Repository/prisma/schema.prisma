@@ -1,0 +1,146 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model EarthquakeEvent {
+  id          String   @id @default(cuid())
+  title       String
+  magnitude   Float
+  depth       Float?
+  latitude    Float
+  longitude   Float
+  location    String
+  eventTime   DateTime
+  source      String   @default("NCS")
+  status      String   @default("ACTIVE") // ACTIVE, MONITORING, RESOLVED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  incidents    Incident[]
+  alerts       Alert[]
+  verifications VerificationEntry[]
+}
+
+model Incident {
+  id            String   @id @default(cuid())
+  eventId       String
+  type          String   // COLLAPSE, FIRE, MEDICAL, LANDSLIDE, ROAD_BLOCK, FLOOD
+  description   String?
+  latitude      Float
+  longitude     Float
+  reportedBy    String   // CITIZEN, SOCIAL_MEDIA, GOVERNMENT, RESCUE_TEAM
+  reporterName  String?
+  reporterPhone String?
+  status        String   @default("PENDING") // PENDING, VERIFIED, IN_PROGRESS, RESOLVED, FALSE
+  priority      String   @default("MEDIUM") // CRITICAL, HIGH, MEDIUM, LOW
+  assignedTo    String?
+  immediateNeeds String? // JSON string for needs like "water", "medical", "rescue"
+  verificationTier String @default("TIER_2") // TIER_1, TIER_2, TIER_3
+  clusterId     String?
+  clusterCount  Int      @default(1)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  event         EarthquakeEvent @relation(fields: [eventId], references: [id])
+
+  fieldUpdates  FieldUpdate[]
+}
+
+model FieldUpdate {
+  id          String   @id @default(cuid())
+  incidentId  String
+  status      String   // EN_ROUTE, ON_SITE, RESOLVED
+  note        String?
+  updatedBy   String?
+  createdAt   DateTime @default(now())
+
+  incident    Incident @relation(fields: [incidentId], references: [id])
+}
+
+model Alert {
+  id          String   @id @default(cuid())
+  eventId     String
+  title       String
+  message     String
+  severity    String   @default("INFO") // INFO, WARNING, CRITICAL, EVACUATION
+  targetRole  String   @default("PUBLIC") // PUBLIC, RESCUE, ADMIN, ALL
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  event       EarthquakeEvent @relation(fields: [eventId], references: [id])
+}
+
+model VerificationEntry {
+  id            String   @id @default(cuid())
+  eventId       String
+  sourceTier    String   // TIER_1, TIER_2, TIER_3
+  sourceType    String   // NCS, IMD, NDMA, CITIZEN_REPORT, TWITTER, WHATSAPP
+  rawContent    String
+  extractedData String? // JSON string of extracted structured data
+  status        String   @default("PENDING") // PENDING, VERIFIED, HIGHLY_PROBABLE, UNVERIFIED, FALSE, DISMISSED
+  confidence    Float    @default(0)
+  adminNote     String?
+  reviewedBy    String?
+  reviewedAt    DateTime?
+  incidentId    String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  event         EarthquakeEvent @relation(fields: [eventId], references: [id])
+}
+
+model Resource {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   // HOSPITAL, WAREHOUSE, RELIEF_CAMP, WATER_POINT, MEDICAL_CAMP, SHELTER
+  latitude    Float
+  longitude   Float
+  address     String?
+  capacity    Int      @default(100)
+  currentLoad Int      @default(0)
+  status      String   @default("OPERATIONAL") // OPERATIONAL, OVERLOADED, DAMAGED, CLOSED
+  contact     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SafetyCheckIn {
+  id          String   @id @default(cuid())
+  eventId     String
+  personName  String
+  phone       String?
+  status      String   // SAFE, NEEDS_ASSISTANCE
+  latitude    Float?
+  longitude   Float?
+  note        String?
+  createdAt   DateTime @default(now())
+}
+
+model AgentOutput {
+  id            String   @id @default(cuid())
+  eventId       String
+  agentType     String   // SITUATION, PRIORITY, RECOMMENDATION
+  output        String   // The main output text
+  reasoningTrace String? // Step-by-step reasoning
+  inputData     String? // JSON of input data used
+  createdAt     DateTime @default(now())
+}
+
+model RescueTeam {
+  id          String   @id @default(cuid())
+  name        String
+  unitType    String   // NDRF, SDRF, POLICE, FIRE, MEDICAL, ARMY
+  status      String   @default("AVAILABLE") // AVAILABLE, DEPLOYED, STANDBY
+  latitude    Float?
+  longitude   Float?
+  assignedIncidentId String?
+  contact     String?
+  members     Int      @default(5)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
