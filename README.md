@@ -146,7 +146,7 @@ The PoC simulates the **Latur District Earthquake (M6.2)** — a realistic scena
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/QuakeRelief.git
+git clone https://github.com/neeraj17-p/QuakeRelief
 cd QuakeRelief
 
 # Install dependencies
