@@ -134,7 +134,7 @@ The PoC simulates the **Latur District Earthquake (M6.2)** — a realistic scena
 
 ---
 
-## How to Run Locally (### ⚠️ Known Setup Notes taht we are working on 🏗️
+## How to Run Locally (⚠️ Known Setup Notes (errors) that we are working on 🏗️)
 
 - **Tailwind v4 Styling on Windows/Bun:** Depending on your local environment and bundler (Next.js Turbopack), custom CSS `@import` rules for `tw-animate-css` may fail to resolve automatically. 
 - **Workaround:** If styles do not render on initial startup, ensure PostCSS dependencies are linked or temporarily bypass `@import "tw-animate-css";` in `src/app/globals.css`.)
