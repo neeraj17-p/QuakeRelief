@@ -293,10 +293,10 @@ This project is developed as a Proof-of-Concept for disaster management research
 
 | Name | 
 |------|
-| Dakh Shinde | 
+| Daksh Shinde | 
 | Tanmay Patil | 
-| Tanmay Dahake |
-| Neeraj Piralkar |
+| Tanmay Dahake | 
+| Neeraj Piralkar | 
 
 
 ## Acknowledgements
