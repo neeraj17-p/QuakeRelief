@@ -216,7 +216,7 @@ The PoC simulates the **Latur District Earthquake (M6.2)** — a realistic scena
 
 ---
 
-## Getting Started
+## Getting Started (Partially Working, Work in Progress! 🏗️🚧)
 
 ### Prerequisites
 
@@ -497,7 +497,7 @@ QuakeRelief supports **3 languages** with instant switching and persistent local
 
 ## License
 
-This project is licensed under the **MIT License**. See `LICENSE` for details.
+This project is developed as a Proof-of-Concept for disaster management research. Contact the maintainers for licensing details.
 
 ---
 
