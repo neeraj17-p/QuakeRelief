@@ -270,16 +270,16 @@ The application uses **8 interconnected models** in SQLite via Prisma:
 
 ## Future Scope
 
-- [ ] **WebSocket migration** — Replace polling with Socket.IO server for true real-time sync
+- ~~[ ] **WebSocket migration** — Replace polling with Socket.IO server for true real-time sync~~ ✅ Shipped
 - [ ] **AI verification agent** — LLM-powered automatic verification of citizen reports
-- [ ] **Mobile PWA** — Offline-capable progressive web app for field teams
+- ~~[ ] **Mobile PWA** — Offline-capable progressive web app for field teams~~ ✅ Shipped
 - [ ] **Aftershock prediction** — Real-time seismological data feed with probability alerts
 - [ ] **Drone imagery integration** — Aerial damage assessment overlay on the GIS map
 - [ ] **Multi-event support** — Handle concurrent earthquakes across different districts
 - [ ] **NDMA/SDMA API integration** — Connect to India's national disaster management APIs
 - [ ] **Voice broadcast** — TTS-generated emergency announcements for illiterate populations
-- [ ] **Multi-language** — Marathi and Hindi localization via next-intl (already in dependencies)
-- [ ] **Exportable reports** — PDF/CSV incident and verification reports for government submissions
+- ~~[ ] **Multi-language** — Marathi and Hindi localization via next-intl (already in dependencies)~~ ✅ Shipped
+- ~~[ ] **Exportable reports** — PDF/CSV incident and verification reports for government submissions~~ ✅ Shipped
 
 ---
 
