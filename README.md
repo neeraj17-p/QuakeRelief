@@ -484,12 +484,12 @@ QuakeRelief supports **3 languages** with instant switching and persistent local
 - [x] **PWA support** — service worker, manifest, offline-capable
 - [x] **Dark/light theme** — next-themes with system preference detection
 - [x] **AI intelligence summary** — 3-agent analysis with reasoning traces
+- [X] **Exportable reports** — PDF/CSV incident and verification reports for government submissions
 - [ ] **Mobile PWA optimization** — full offline capability for field teams
 - [ ] **Aftershock prediction** — real-time seismological data feed with probability alerts
 - [ ] **Drone imagery integration** — aerial damage assessment overlay on GIS map
 - [ ] **Multi-event support** — handle concurrent earthquakes across different districts
 - [ ] **NDMA/SDMA API integration** — connect to India's national disaster management APIs
-- [X] **Exportable reports** — PDF/CSV incident and verification reports for government submissions
 - [ ] **Docker deployment** — containerized deployment with docker-compose
 - [ ] **End-to-end encryption** — secure communication for sensitive incident data
 
