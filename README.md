@@ -489,7 +489,7 @@ QuakeRelief supports **3 languages** with instant switching and persistent local
 - [ ] **Drone imagery integration** — aerial damage assessment overlay on GIS map
 - [ ] **Multi-event support** — handle concurrent earthquakes across different districts
 - [ ] **NDMA/SDMA API integration** — connect to India's national disaster management APIs
-- [ ] **Exportable reports** — PDF/CSV incident and verification reports for government submissions
+- [X] **Exportable reports** — PDF/CSV incident and verification reports for government submissions
 - [ ] **Docker deployment** — containerized deployment with docker-compose
 - [ ] **End-to-end encryption** — secure communication for sensitive incident data
 
